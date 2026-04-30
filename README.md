@@ -8,6 +8,8 @@ A Windows 10 endpoint was configured with Sysmon to generate detailed process te
 
 This lab simulates real-world SOC workflows including log ingestion, alert detection, and incident investigation.
 
+**Status:** Completed
+
 ---
 
 ## Tools & Technologies
