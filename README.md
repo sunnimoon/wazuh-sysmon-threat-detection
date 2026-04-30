@@ -105,6 +105,8 @@ PowerShell execution with ExecutionPolicy Bypass was generated manually on the W
 - Enable PowerShell logging and script block logging in enterprise environments
 - Monitor temporary directories for suspicious file creation activity
 
+## Lab Note
+
 The PowerShell activity was generated intentionally on the Windows endpoint to simulate suspicious behavior and validate detection capabilities.
 
 ---
