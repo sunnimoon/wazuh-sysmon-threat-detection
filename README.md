@@ -2,7 +2,11 @@
 
 ## Overview
 
-This project demonstrates hands-on experience with endpoint monitoring, SIEM log ingestion, and threat detection using Wazuh and Sysmon. A Windows 10 endpoint was configured with Sysmon and connected to Wazuh to detect and investigate suspicious PowerShell activity.
+This project demonstrates the detection and analysis of suspicious PowerShell activity using Sysmon and Wazuh SIEM.
+
+A Windows 10 endpoint was configured with Sysmon to generate detailed process telemetry, which was forwarded to Wazuh for analysis. Detection rules were triggered based on PowerShell execution behavior, and the activity was investigated using command-line and process correlation.
+
+This lab simulates real-world SOC workflows including log ingestion, alert detection, and incident investigation.
 
 ---
 
@@ -83,10 +87,10 @@ PowerShell execution with ExecutionPolicy Bypass was generated manually on the W
 
 ## Findings
 
-- Sysmon successfully captured PowerShell process creation activity
-- Wazuh successfully ingested Sysmon logs from the Windows endpoint
 - PowerShell execution with ExecutionPolicy Bypass was detected
-- Wazuh mapped the PowerShell alert to MITRE ATT&CK technique T1059.001
+- The activity involved PowerShell spawning another PowerShell process
+- Command-line analysis confirmed use of bypass flags commonly associated with malicious scripts
+- Wazuh successfully mapped the activity to MITRE ATT&CK technique T1059.001
 - File creation activity was observed in a temporary directory commonly used by malware
 
 ---
@@ -98,6 +102,8 @@ PowerShell execution with ExecutionPolicy Bypass was generated manually on the W
 - Restrict unnecessary PowerShell usage where appropriate
 - Enable PowerShell logging and script block logging in enterprise environments
 - Monitor temporary directories for suspicious file creation activity
+
+The PowerShell activity was generated intentionally on the Windows endpoint to simulate suspicious behavior and validate detection capabilities.
 
 ---
 
@@ -113,7 +119,7 @@ PowerShell execution with ExecutionPolicy Bypass was generated manually on the W
 <img width="1024" height="769" alt="02-process-execution-details" src="https://github.com/user-attachments/assets/1bff569e-a253-498a-aa37-17fd53acab3f" />
 
 
-### Figure 3: PowerShell Execution Analysis
+### Figure 3: Sysmon PowerShell Execution Analysis
 
 <img width="1025" height="768" alt="03-suspicious-powershell-execution" src="https://github.com/user-attachments/assets/51ba6526-6438-4894-a744-c0a6b416dc1f" />
 
